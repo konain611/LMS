@@ -40,3 +40,13 @@ button:hover {
     width: 300px;
     display: none;
 }
+input, select {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
