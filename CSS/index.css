@@ -3,6 +3,8 @@ body{
     font-family: sans-serif;
     background-image: url('../map.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .signupbox , .signupbox2{
@@ -46,6 +48,7 @@ form input{
     font-size: 18px;
     font-weight: bolder;
 }
+
 
 .submit-btn, .submit-btn1, .submit-btn2{
     width: 520px;
@@ -93,10 +96,12 @@ form input{
     border: solid rgb(0, 0, 0);
 }
 
- a , form a{
+ a {
     line-height: 50px; 
     text-decoration: none;
     color: white;
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+
