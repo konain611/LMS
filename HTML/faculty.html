@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,22 @@
     <link rel="stylesheet" href="../CSS/index.css">
 </head>
 
-<body> 
+<body>
 
     <div class="signupbox2">
         <h1>Faculties Login Page</h1>
-       
-        <form>
-            <label>Email</label>
-            <input type="email" placeholder="">
+    
+        <form action="login_handler.php" method="post">
+            <label>ID</label>
+            <input type="email" placeholder="" name="id">
             <label>Password</label>
-            <input type="password" placeholder="">
+            <input type="password" placeholder="" name="password">
+            <div class="submit-btn2">
+                <a href="#">
+                    <input type="submit" value="Login" style="border: none; background: none; cursor: pointer;">
+                </a>
         </form>
-
-        <a href="admin.html">
-            <div class="submit-btn1">
-                login
-            </div>
-        </a>
+    
         <a href="index.html">
             <div class="submit-btn">
                 Back To Home Page
@@ -32,4 +32,5 @@
     </div>
 
 </body>
+
 </html>
