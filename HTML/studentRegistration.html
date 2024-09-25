@@ -12,14 +12,14 @@
 
 <body>
     <div class="signupbox3">
-        <form >
+        <form action="../registration.php" method="post">
             <header>Student Registration Form</header>
             <p style="text-align: center; margin-top: -60px; margin-bottom: 40px;" >Fields with an ( * ) are required</p>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Full Name <span>*</span></label>
-                    <input type="text" name="student_name" required>
+                    <input type="text" name="studentname" required>
                 </div>
             
                 <div class="form-group">
@@ -40,7 +40,7 @@
             
                 <div class="form-group">
                     <label>Contact Number<span></span></label>
-                    <input type="text" name="contact_number" pattern="^[0-9]{11}" title="Required format 03xxxxxxxxx">
+                    <input type="text" name="contactnumber" pattern="^[0-9]{11}" title="Required format 03xxxxxxxxx">
                 </div>
             </div>
             
@@ -48,12 +48,12 @@
                
                 <div class="form-group">
                     <label>Date of Birth <span>*</span></label>
-                    <input type="date" name="date_of_birth" required>
+                    <input type="date" name="dateofbirth" required>
                 </div>
 
                 <div class="form-group">
                     <label>HSSC Board Name<span></span></label>
-                    <input type="text" name="hssc_board_name">
+                    <input type="text" name="hsscboardname">
                 </div>
             </div>
             
@@ -61,19 +61,19 @@
                 
                 <div class="form-group">
                     <label>HSSC Obtained Marks <span>*</span></label>
-                    <input type="text" name="hssc_obtained_marks" required>
+                    <input type="text" name="hsscobtainedmarks" required>
                 </div>
             
                 <div class="form-group">
                     <label>HSSC Total Marks <span>*</span></label>
-                    <input type="text" name="hssc_total_marks" required>
+                    <input type="text" name="hssctotalmarks" required>
                 </div>
             </div>
             
             <div class="form-row">
                 <div class="form-group">
                     <label>Complete Address <span></span></label>
-                    <input type="text" name=complete_address">
+                    <input type="text" name=completeaddress">
                 </div>
             </div>
             
