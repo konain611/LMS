@@ -1,16 +1,20 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 $db_host = 'localhost';
 $db_username = 'root';
 $db_password = '';
 $db_name = 'studentregistration';
 
 
-$conn = new mysqli_connect($db_host, $db_username, $db_password, $db_name);
+$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 if (isset($_POST['submit'])) {
@@ -25,17 +29,22 @@ if (isset($_POST['submit'])) {
     $completeaddress = $_POST["completeaddress"];
 
 
-    $sql = "INSERT INTO studentregistration (studentname, email, gender, contactnumber, dateofbirth, hsscboardname, hsscobtainedmarks,
-     hssctotalmarks, completeaddress) 
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare("INSERT INTO studentregistration (studentname, email, gender, contactnumber, dateofbirth, hsscboardname, hsscobtainedmarks, hssctotalmarks, completeaddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    
 
-if(mysqli_query($conn, $sql_qurey)){
-    echo "Data Inserted successfully"
-}
-else{
-    echo "Error: " . sql . "" . mysqli_connect_error($conn);
+    $stmt->bind_param("ssisssssss", $fullname, $email, $gender, $contactnumber, $dateofbirth, $hsscboardname, $hsscobtainedmarks, $hssctotalmarks, $completeaddress);
+
+    if ($stmt->execute()) {
+        echo "Data Inserted successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+  
+    $stmt->close();
 }
 
-mysqli_close($conn);
+
+$conn->close();
 
 ?>
