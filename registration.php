@@ -1,50 +1,30 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+    // $studentname = $_POST['studentname'];
+    // $email = $_POST['email'];
+    // $gender = $_POST['gender'];
+    // $contactnumber = $_POST['contactnumber'];
+    // $dateofbirth = $_POST['dateofbirth'];
+    // $password = $_POST['password'];
+    // $completeaddress = $_POST['completeaddress'];
 
+    // $conn = new my_sqli('localhost','root','','stureg');
 
-$db_host = 'localhost';
-$db_username = 'root';
-$db_password = '';
-$db_name = 'studentregistration';
-
-
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if (isset($_POST['submit'])) {
-    $fullname = $_POST["fullname"];
-    $email = $_POST["email"];
-    $gender = $_POST["gender"];
-    $contactnumber = $_POST["contactnumber"];
-    $dateofbirth = $_POST["dateofbirth"];
-    $hsscboardname = $_POST["hsscboardname"];
-    $hsscobtainedmarks = $_POST["hsscobtainedmarks"];
-    $hssctotalmarks = $_POST["hssctotalmarks"];
-    $completeaddress = $_POST["completeaddress"];
-
-
-    $stmt = $conn->prepare("INSERT INTO studentregistration (studentname, email, gender, contactnumber, dateofbirth, hsscboardname, hsscobtainedmarks, hssctotalmarks, completeaddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // if($conn->connect_error){
+    //     die('Connection Failed : ' .$conn->connect_error);
+    // }
     
+    // else{
+    //     $stmt = $conn->prepare("Insert into students(studentname, email, gender, contactnumber, dateofbirth, password, completeaddress)
+    //     values(?, ?, ?, ?, ?, ?, ?)");
+    //     $stmt->bind_param("sssssss", $studentname, $email, $gender, $contactnumber, $dateofbirth, $password, $completeaddress);
+    //     $stmt->execute();
 
-    $stmt->bind_param("ssisssssss", $fullname, $email, $gender, $contactnumber, $dateofbirth, $hsscboardname, $hsscobtainedmarks, $hssctotalmarks, $completeaddress);
+    //     echo "Student registered successfully!";
 
-    if ($stmt->execute()) {
-        echo "Data Inserted successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+    //     $stmt->close();
+    //     $conn->close();
+    // }
 
-  
-    $stmt->close();
-}
-
-
-$conn->close();
-
+    echo "Hello";
 ?>
