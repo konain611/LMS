@@ -1,3 +1,41 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $studentname = $_POST["studentname"];
+    $email = $_POST["email"];
+    $gender = $_POST["gender"];
+    $contactnumber = $_POST["contactnumber"];
+    $dateofbirth = $_POST["dateofbirth"];
+    $password = $_POST["password"];
+    $completeaddress = $_POST["completeaddress"];
+
+
+    $host = 'localhost';
+    $db = 'stureg';
+    $user = 'root';
+    $pass = '';   
+
+
+    $conn = new mysqli($host, $user, $pass, $db);
+    
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+    
+        $sql = "INSERT INTO stu_registration (studentname, email, gender, contactnumber, dateofbirth, password, completeaddress)
+                VALUES ('$studentname', '$email', '$gender', '$contactnumber', '$dateofbirth', '$password', '$completeaddress')";
+    
+        if ($conn->query($sql) === TRUE) {
+            echo "<h3>Form submitted successfully!</h3>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    
+        $conn->close();
+   
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +46,7 @@
 </head>
 <body>
     <div class="signupbox3">
-        <form action="registration.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <header>Student Registration Form</header>
             <p style="text-align: center; margin-top: -60px; margin-bottom: 40px;">Fields with an ( * ) are required</p>
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+    <div class="signupbox2">
+        <h1>Admin Login Page</h1>
+        <form id="admin-form">
+            <label for="id">Username:</label>
+            <input type="text" placeholder="Use `Admin` as a username" id="id" name="id"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Use `0000` as a password" name="password"><br><br>
+            <div class="submit-btn2">
+                <input type="submit" value="Login" style="border: none; background: none; cursor: pointer; margin-bottom: 10%;">
+            </div>
+        </form>
+        <a href="../index.html">
+            <div class="submit-btn">
+                Back To Home Page
+            </div>
+        </a>
+        <div style="text-align: center; color: red; font-weight: bold; margin-top: 20px; font-size: 20px;" id="error-message"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('admin-form');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('id').value;
+            const password = document.getElementById('password').value;
+
+            if (id === 'Admin' && password === '0000') {
+                window.location.href = 'adminPortal.php';
+            } else {
+                errorMessage.innerText = 'Invalid username or password';
+            }
+        });
+    </script>
+</body>
+</html>
