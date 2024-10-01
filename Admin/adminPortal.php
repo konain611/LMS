@@ -8,7 +8,7 @@ $pass = '';
 $conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
-    
+
     die("Connection failed: " . $conn->connect_error);
 
 }
@@ -23,11 +23,17 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["id"] . "</td>";
+
         echo "<td>" . $row["studentname"] . "</td>";
+
         echo "<td>" . $row["email"] . "</td>";
+
         echo "<td>" . $row["contactnumber"] . "</td>";
+
         echo "<td>" . $row["dateofbirth"] . "</td>";
+
         echo "<td>" . $row["password"] . "</td>";
+        
         echo "<td>" . $row["completeaddress"] . "</td>";
         echo "<td>";
         echo "<a href='edit.php?id=" . $row["id"] . "'><button class='btn'>Edit</button></a> | ";
