@@ -91,7 +91,7 @@ a {
 
 .submit-btn2 input[type="submit"] {
     border: none;
-    
+
     background: none;
     padding: 0;
     font: inherit;
@@ -102,7 +102,11 @@ a {
 
 .submit-btn:hover {
     background-color: black;
+
+
+
     color: white;
+    
     border: solid rgb(243, 5, 5);
 }
 
