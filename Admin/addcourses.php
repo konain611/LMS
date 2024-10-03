@@ -1,3 +1,12 @@
+<link rel="stylesheet" href="adminPortal.php">
+<link rel="stylesheet" href="deletecourse.php">
+<style>
+    .signupbox{
+        display: grid;
+    margin: auto;
+    padding: 4px;
+    }
+    </style>
 <?php
 
 $servername = "localhost";
@@ -24,15 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         echo "New course added successfully!";
-        header("Location: adminportal.php");
+        header("Location: courses.php");
     } else {
         echo "Error: " . $stmt->error;
     }
 
-
     $stmt->close();
 }
 
+echo "<a href='courses.php' class='logout-button'><button class='btn2'>Back to View Courses</button></a>";
 
 $conn->close();
 ?>
