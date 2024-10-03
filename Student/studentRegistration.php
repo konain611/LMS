@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label>Email <span>*</span></label>
-                    <input type="email" name="email" required>
+                    <input type="email" value="@ubit.com" name="email" required>
                 </div>
             </div>
 

@@ -6,6 +6,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
 }
 
 header{
@@ -61,6 +62,7 @@ form span{
     border-radius: 30px;
     position: relative;
     backdrop-filter: blur(5px);
+
     padding: 50px;
 }
 
@@ -84,26 +86,22 @@ form span{
 }
  .submit-btn2:active{
     background-color: rgb(0, 196, 26);
-
     border: solid rgb(0, 0, 0);
 }
 .submit-btn3:hover{
     background-color: black;
     color: white;
     border: solid rgb(243, 5, 5);
-
 }
 .submit-btn3:active{
     background-color: red;
     border: solid rgb(0, 0, 0);
-
 }
-a , form a{
+a , form a, label{
     line-height: 50px; 
     text-decoration: none;
     color: white;
     font-size: 30px;
-    
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
