@@ -111,7 +111,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve all courses from the courses table
+
 $sql = "SELECT * FROM courses";
 $result = $conn->query($sql);
 
@@ -130,7 +130,7 @@ if ($result->num_rows > 0) {
         echo "<table border='2'>";
         echo "<th>{$course_info['course_name']} ($course_code)</th>"; 
 
-        // Retrieve faculty assigned to each course
+ 
         $sql_faculty = "SELECT * FROM faculty_courses WHERE course_code = '$course_code'";
         $result_faculty = $conn->query($sql_faculty);
 
