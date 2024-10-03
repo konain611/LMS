@@ -23,9 +23,9 @@ if ($stmt->execute()) {
 
     echo "Faculty deleted successfully!";
     header("Location: ../Admin/courses.php");
-    exit(); // Ensure the script stops after the redirect
+    exit();
 } else {
-    // Handle any errors that occur during deletion
+
     echo "Error deleting faculty: " . $conn->error;
 }
 
