@@ -28,10 +28,12 @@
 
     <script>
         const form = document.getElementById('admin-form');
+
         const errorMessage = document.getElementById('error-message');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            
             const id = document.getElementById('id').value;
             const password = document.getElementById('password').value;
 
