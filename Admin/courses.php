@@ -83,9 +83,11 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(8px);
         }
-        th{
+
+        th {
             background-color: #17416c;
         }
+
         th,
         td {
             border: 1px solid #ddd;
@@ -111,7 +113,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve all courses from the courses table
+
 $sql = "SELECT * FROM courses";
 $result = $conn->query($sql);
 
@@ -128,9 +130,9 @@ if ($result->num_rows > 0) {
     echo "<div class='table-container'>";
     foreach ($courses as $course_code => $course_info) {
         echo "<table border='2'>";
-        echo "<th>{$course_info['course_name']} ($course_code)</th>"; 
+        echo "<th>{$course_info['course_name']} ($course_code)</th>";
 
-        // Retrieve faculty assigned to each course
+   
         $sql_faculty = "SELECT * FROM faculty_courses WHERE course_code = '$course_code'";
         $result_faculty = $conn->query($sql_faculty);
 

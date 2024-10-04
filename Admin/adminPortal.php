@@ -147,7 +147,6 @@ $conn->close();
             margin-left: auto;
 
         }
-
     </style>
 </head>
 
