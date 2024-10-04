@@ -2,7 +2,7 @@
     .comma-list {
         list-style-type: none;
         padding: 0;
-        font-family:sans-serif;
+        font-family: sans-serif;
         font-weight: bold;
     }
 

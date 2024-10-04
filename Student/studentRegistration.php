@@ -12,38 +12,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $host = 'localhost';
     $db = 'stureg';
     $user = 'root';
-    $pass = '';   
+    $pass = '';
 
 
     $conn = new mysqli($host, $user, $pass, $db);
-    
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-    
-        $sql = "INSERT INTO stu_registration (studentname, email, gender, contactnumber, dateofbirth, password, completeaddress)
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "INSERT INTO stu_registration (studentname, email, gender, contactnumber, dateofbirth, password, completeaddress)
                 VALUES ('$studentname', '$email', '$gender', '$contactnumber', '$dateofbirth', '$password', '$completeaddress')";
-    
-        if ($conn->query($sql) === TRUE) {
-            echo "<h3>Form submitted successfully!</h3>";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    
-        $conn->close();
-   
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<h3>Form submitted successfully!</h3>";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration</title>
     <link rel="stylesheet" href="../CSS/registation.css">
 </head>
+
 <body>
     <div class="signupbox3">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -104,4 +105,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </body>
+
 </html>
