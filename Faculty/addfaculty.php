@@ -130,7 +130,7 @@ $result = $conn->query($sql_courses);
 
             <button type="submit" class="submit-btn2">Submit</button>
         </form>
-       <a  href="../Admin/adminPortal.php"><button  class="submit-btn3">Back To Admin Panel</button></a> 
+        <a href="../Admin/adminPortal.php"><button class="submit-btn3">Back To Admin Panel</button></a>
     </div>
 </body>
 
