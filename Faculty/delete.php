@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 if (isset($_POST['confirm'])) {
     $id = $_POST['id'];
 } elseif (isset($_GET['id'])) {
-    $id = $_GET['id']; 
+    $id = $_GET['id'];
 } else {
     echo "Invalid ID";
     exit;
@@ -43,7 +43,7 @@ if (is_numeric($id) && $id > 0) {
 if (isset($_POST['confirm'])) {
     $sql = "DELETE FROM faculty_courses WHERE faculty_id = $id";
     $conn->query($sql);
-    
+
     $sql = "DELETE FROM faculty_reg WHERE id = $id";
     if ($conn->query($sql) === TRUE) {
         echo "Faculty with ID $id deleted successfully";
