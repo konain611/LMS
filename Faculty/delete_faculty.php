@@ -23,6 +23,7 @@ $stmt->bind_param('si', $course_code, $faculty_id);
 
 if ($stmt->execute()) {
     echo "Faculty deleted successfully!";
+    
     header("Location: ../Admin/courses.php");
     exit(); 
 } else {
