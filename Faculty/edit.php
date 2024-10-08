@@ -27,7 +27,7 @@ if (isset($id) && !empty($id)) {
     $result = $conn->query("SELECT * FROM faculty_reg WHERE id = '$id'");
     if ($result->num_rows > 0) {
         $faculty = $result->fetch_assoc();
-        
+
     } else {
         echo "Faculty not found";
         exit;
@@ -46,6 +46,7 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
+    
     $password = $_POST['password'];
     $gender = $_POST['gender'];
 
