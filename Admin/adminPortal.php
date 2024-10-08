@@ -64,9 +64,11 @@ if ($result->num_rows > 0) {
         echo "<a href='../Faculty/delete.php?id=" . $row["id"] . "'><button class='btn2'>Delete</button></a> |";
 
         echo "<button class='btn' onclick='viewCourses(" . $row["id"] . ")'>View Courses</button>";
-        
+
         echo "</td>";
+
         echo "<td><div id='courses-container" . $row["id"] . "'></div></td>";
+        
         echo "</tr>";
     }
     echo "</table><br><hr><hr><br>";
