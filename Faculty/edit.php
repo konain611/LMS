@@ -15,6 +15,7 @@ if (isset($_GET['id'])) {
 } else {
     echo "Invalid ID";
     exit;
+
 }
 
 if (isset($id) && !empty($id)) {
@@ -26,6 +27,7 @@ if (isset($id) && !empty($id)) {
     $result = $conn->query("SELECT * FROM faculty_reg WHERE id = '$id'");
     if ($result->num_rows > 0) {
         $faculty = $result->fetch_assoc();
+        
     } else {
         echo "Faculty not found";
         exit;
