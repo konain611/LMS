@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $email = $_POST['email'];
+    
     $password = $_POST['password'];
 
 
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         echo "<div style='color: red; font-size:21px; font-weight: bold; text-align: center; position: absolute; top: 5%; left:38%;'>
-        
+
             Invalid email or password. Please try again.
           </div>";
     }
