@@ -19,7 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $stmt = $conn->prepare("SELECT * FROM faculty_reg WHERE email = ? AND password = ?");
+
     $stmt->bind_param("ss", $email, $password);
+
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -32,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         echo "<div style='color: red; font-size:21px; font-weight: bold; text-align: center; position: absolute; top: 5%; left:38%;'>
+        
             Invalid email or password. Please try again.
           </div>";
     }
