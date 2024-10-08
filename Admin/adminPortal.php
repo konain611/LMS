@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
         echo "</td>";
 
         echo "<td><div id='courses-container" . $row["id"] . "'></div></td>";
-        
+
         echo "</tr>";
     }
     echo "</table><br><hr><hr><br>";
@@ -166,6 +166,7 @@ $conn->close();
         <a href='deletecourse.php'><button class="btn2">Delete Courses</button></a>
         <a href="logout.php" class="logout-button"><button class="btn2">Logout</button></a>
     </div>
+    
     <script>
         function viewCourses(facultyId) {
             var xhr = new XMLHttpRequest();
