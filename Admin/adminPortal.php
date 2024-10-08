@@ -60,6 +60,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["password"] . "</td>";
         echo "<td>";
         echo "<a href='../Faculty/edit.php?id=" . $row["id"] . "'><button class='btn'>Update</button></a> | ";
+        
         echo "<a href='../Faculty/delete.php?id=" . $row["id"] . "'><button class='btn2'>Delete</button></a> |";
         echo "<button class='btn' onclick='viewCourses(" . $row["id"] . ")'>View Courses</button>";
         echo "</td>";
