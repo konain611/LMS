@@ -15,7 +15,9 @@ $faculty_id = $_POST['faculty_id'];
 
 
 $sql = "DELETE FROM faculty_courses WHERE course_code = ? AND faculty_id = ?";
+
 $stmt = $conn->prepare($sql);
+
 $stmt->bind_param('si', $course_code, $faculty_id);
 
 if ($stmt->execute()) {
