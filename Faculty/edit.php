@@ -44,9 +44,11 @@ if (isset($id) && !empty($id)) {
 <?php
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
+
     $name = $_POST['name'];
-    $email = $_POST['email'];
     
+    $email = $_POST['email'];
+
     $password = $_POST['password'];
     $gender = $_POST['gender'];
 
