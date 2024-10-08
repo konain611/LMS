@@ -14,6 +14,7 @@
         <a href=''><button class="btn">Check Student Attendance</button></a>
         <a href='addcourses.php'><button class="btn">Add Course</button></a>
         <a href='deletecourse.php'><button class="btn2">Delete Course</button></a>
+        
         <a href="adminPortal.php" class="logout-button"><button class="btn2">Back to Admin Portal</button></a>
     </div>
     <style>
