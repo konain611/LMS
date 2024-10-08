@@ -182,8 +182,9 @@ $conn->close();
                         container.innerHTML = xhr.responseText;
                     }
                 }
+                
             };
-            
+
             xhr.send();
         }
     </script>
