@@ -30,6 +30,7 @@ if (is_numeric($id) && $id > 0) {
 
     echo "<h1>Delete Faculty Record?</h1>";
     echo "<p style='text-align:center; font-size:35px; color:Yellow;';>Are you sure you want to delete the Faculty record with ID $id?</p>";
+    
     echo "<form action='delete.php' method='post'>";
     echo "<input type='hidden' name='id' value='$id'>";
     echo "<input type='submit' name='confirm' value='Yes, delete'>";
