@@ -11,6 +11,7 @@ if ($conn->connect_error) {
 }
 
 $course_code = $_POST['course_code'];
+
 $faculty_id = $_POST['faculty_id'];
 
 
