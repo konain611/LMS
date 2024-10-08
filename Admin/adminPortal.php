@@ -166,9 +166,10 @@ $conn->close();
         <a href='deletecourse.php'><button class="btn2">Delete Courses</button></a>
         <a href="logout.php" class="logout-button"><button class="btn2">Logout</button></a>
     </div>
-    
+
     <script>
         function viewCourses(facultyId) {
+
             var xhr = new XMLHttpRequest();
             xhr.open('GET', '../Faculty/getcourses.php?id=' + facultyId, true);
             xhr.onload = function() {
@@ -182,6 +183,7 @@ $conn->close();
                     }
                 }
             };
+            
             xhr.send();
         }
     </script>
