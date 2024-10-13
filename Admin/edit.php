@@ -102,10 +102,11 @@ if (isset($_POST['update'])) {
         <label for="completeaddress">Address:</label>
         <input type="text" id="completeaddress" name="completeaddress" value="<?php echo $student['completeaddress']; ?>"><br><br>
         <label for="contactnumber">Phone Number:</label>
-        
+
         <input type="tel" id="contactnumber" name="contactnumber" value="<?php echo $student['contactnumber']; ?>"><br><br>
         <input type="submit" name="update" value="Update">
     </form>
+    
 </body>
 
 </html>
