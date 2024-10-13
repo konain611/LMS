@@ -83,6 +83,7 @@ mysqli_close($conn);
 
         .portal-container h1 {
             margin-top: 0;
+            
         }
 
         .logout-btn {
