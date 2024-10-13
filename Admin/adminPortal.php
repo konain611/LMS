@@ -14,10 +14,12 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM stu_registration";
 $result = $conn->query($sql);
 
+// ...
+
 if ($result->num_rows > 0) {
     echo "<h1>STUDENT LIST</h1>";
     echo "<table border='1'>";
-    echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>Phone Number</th><th>Date of Birth (YYYY-MM-DD)</th><th>Password</th><th>Address</th><th>Actions</th></tr>";
+    echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>Phone Number</th><th>Date of Birth</th><th>Password</th><th>Address</th><th>Actions</th><th>Courses</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row["id"] . "</td>";
@@ -30,15 +32,18 @@ if ($result->num_rows > 0) {
         echo "<td>";
 
         echo "<a href='../Student/edit.php?id=" . $row["id"] . "'><button class='btn'>Update</button></a> | ";
-        echo "<a href='?id=" . $row["id"] . "'><button class='btn'>Courses</button></a> | ";
-        echo "<a href='delete.php?id=" . $row["id"] . "'><button class='btn2'>Delete</button></a>";
+        echo "<a href='delete.php?id=" . $row["id"] . "'><button class='btn2'>Delete</button></a> | ";
+        echo "<button class='btn' onclick='viewCourses(" . $row["id"] . ", \"student\")'>View Courses</button>";
         echo "</td>";
+        echo "<td><div id='courses-container" . $row["id"] . "'></div></td>";
         echo "</tr>";
     }
     echo "</table><br><hr><hr><br>";
 } else {
     echo "<h1>No registered students found</h1>";
 }
+
+// ...
 
 
 $sql = "SELECT * FROM faculty_reg";
@@ -60,15 +65,10 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["password"] . "</td>";
         echo "<td>";
         echo "<a href='../Faculty/edit.php?id=" . $row["id"] . "'><button class='btn'>Update</button></a> | ";
-
-        echo "<a href='../Faculty/delete.php?id=" . $row["id"] . "'><button class='btn2'>Delete</button></a> |";
-
+        echo "<a href='../Faculty/delete.php?id=" . $row["id"] . "'><button class='btn2'>Delete</button></a> | ";
         echo "<button class='btn' onclick='viewCourses(" . $row["id"] . ")'>View Courses</button>";
-
         echo "</td>";
-
         echo "<td><div id='courses-container" . $row["id"] . "'></div></td>";
-
         echo "</tr>";
     }
     echo "</table><br><hr><hr><br>";
@@ -160,32 +160,31 @@ $conn->close();
     <div class="navbar">
         <a href='../Student/studentRegistration.php'><button class='btn'>Add Student</button></a>
         <a href='../Faculty/addfaculty.php'><button class='btn'>Add Faculty</button></a>
-        <a href=''><button class="btn">Check Student Attendance</button></a>
-        <a href='courses.php'><button class="btn">View Courses</button></a>
+        <a href='stucourses.php'><button class="btn">View Courses (Student)</button></a>
+        <a href='courses.php'><button class="btn">View Courses (Faculty)</button></a>
         <a href='addcourses.php'><button class="btn">Add Courses</button></a>
         <a href='deletecourse.php'><button class="btn2">Delete Courses</button></a>
         <a href="logout.php" class="logout-button"><button class="btn2">Logout</button></a>
     </div>
-
     <script>
-        function viewCourses(facultyId) {
-
+        function viewCourses(id, type) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '../Faculty/getcourses.php?id=' + facultyId, true);
+            if (type === "student") {
+                xhr.open('GET', '../Student/getstucourses.php?id=' + id, true);
+            } else {
+                xhr.open('GET', '../Faculty/getcourses.php?id=' + id, true);
+            }
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    var container = document.getElementById('courses-container' + facultyId);
+                    var container = document.getElementById('courses-container' + id);
                     if (container.style.display === 'block') {
                         container.style.display = 'none';
                     } else {
                         container.style.display = 'block';
                         container.innerHTML = xhr.responseText;
-                        
                     }
                 }
-                
             };
-
             xhr.send();
         }
     </script>

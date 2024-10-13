@@ -11,10 +11,9 @@
     <div class="navbar">
         <a href='../Student/studentRegistration.php'><button class='btn'>Add Student</button></a>
         <a href='../Faculty/addfaculty.php'><button class='btn'>Add Faculty</button></a>
-        <a href=''><button class="btn">Check Student Attendance</button></a>
+        <a href='stucourses.php'><button class="btn">View Courses (Student)</button></a>
         <a href='addcourses.php'><button class="btn">Add Course</button></a>
         <a href='deletecourse.php'><button class="btn2">Delete Course</button></a>
-        
         <a href="adminPortal.php" class="logout-button"><button class="btn2">Back to Admin Portal</button></a>
     </div>
     <style>
@@ -84,11 +83,9 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(8px);
         }
-
-        th {
+        th{
             background-color: #17416c;
         }
-
         th,
         td {
             border: 1px solid #ddd;
@@ -97,7 +94,7 @@
         }
     </style>
 </body>
-<h1>View Courses</h1>
+<h1>View Courses and Assigned Faculty </h1>
 
 </html>
 
@@ -114,7 +111,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
+// Retrieve all courses from the courses table
 $sql = "SELECT * FROM courses";
 $result = $conn->query($sql);
 
@@ -131,9 +128,9 @@ if ($result->num_rows > 0) {
     echo "<div class='table-container'>";
     foreach ($courses as $course_code => $course_info) {
         echo "<table border='2'>";
-        echo "<th>{$course_info['course_name']} ($course_code)</th>";
+        echo "<th>{$course_info['course_name']} ($course_code)</th>"; 
 
-   
+        // Retrieve faculty assigned to each course
         $sql_faculty = "SELECT * FROM faculty_courses WHERE course_code = '$course_code'";
         $result_faculty = $conn->query($sql_faculty);
 

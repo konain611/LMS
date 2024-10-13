@@ -1,8 +1,9 @@
 <?php
-// Start session
+
 session_start();
 
 if (!isset($_SESSION['faculty_email'])) {
+
     header("Location: facultylogin.php");
     exit();
 }
@@ -61,7 +62,6 @@ mysqli_close($conn);
 
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/index.css">
     <title>Faculty Dashboard</title>
@@ -76,15 +76,15 @@ mysqli_close($conn);
             max-width: 800px;
             margin: 40px auto;
             padding: 20px;
-
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
         }
 
         .portal-container h1 {
             margin-top: 0;
-
+            color: #337ab7;
         }
 
         .logout-btn {
@@ -94,6 +94,9 @@ mysqli_close($conn);
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
         }
 
         .logout-btn:hover {
@@ -118,6 +121,7 @@ mysqli_close($conn);
         table {
             width: 100%;
             border-collapse: collapse;
+            border: 1px solid #ddd;
         }
 
         th,
@@ -125,20 +129,36 @@ mysqli_close($conn);
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
+
+        }
+
+        th {
+
+            background-color: #337ab7;
+            color: #fff;
+        }
+
+        .portal-container p {
+            margin-bottom: 20px;
+        }
+
+        .portal-container strong {
+            color: #337ab7;
         }
     </style>
 </head>
 
 <body>
+<form action="facultylogin.php">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
     <div class="portal-container">
         <h1>Welcome to Faculty Portal</h1>
         <p>You are logged in as: <strong><?php echo htmlspecialchars($facultyEmail); ?></strong></p>
 
         <h2>Faculty Dashboard</h2>
 
-        <form action="facultylogin.php">
-            <button type="submit" class="logout-btn">Logout</button>
-        </form>
+        
 
         <table>
             <tr>
@@ -158,3 +178,4 @@ mysqli_close($conn);
 </body>
 
 </html>
+

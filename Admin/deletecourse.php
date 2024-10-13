@@ -1,21 +1,4 @@
-<link rel="stylesheet" href="../CSS/index.css">
-<link rel="stylesheet" href="adminPortal.php">
 
-<style>
-    .btn2 {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    .logout-button {
-        position: fixed;
-        top: 8;
-        right: 3;
-    }
-</style>
-</body>
-
-</html>
 <?php
 
 $conn = mysqli_connect("localhost", "root", "", "stureg");

@@ -1,3 +1,4 @@
+
 <style>
     .comma-list {
         list-style-type: none;
@@ -18,7 +19,6 @@
         content: " ";
     }
 </style>
-
 <?php
 $host = 'localhost';
 $db = 'stureg';
@@ -31,25 +31,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$facultyId = $_GET['id'];
+$studentId = $_GET['id'];
 
-
-$sql = "SELECT c.course_code 
-        FROM faculty_courses fc
-        JOIN courses c ON fc.course_id = c.course_id
-        WHERE fc.faculty_id = '$facultyId'";
-
+$sql = "SELECT * FROM stu_courses WHERE student_id = '$studentId'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<ul class='comma-list'>";
-
     while ($row = $result->fetch_assoc()) {
+        $courseCode = $row['course_code'];
+        $sql2 = "SELECT * FROM courses WHERE course_code = '$courseCode'";
+        $result2 = $conn->query($sql2);
+        $row2 = $result2->fetch_assoc();
         echo "<li>" . $row["course_code"] . "</li>";
     }
     echo "</ul>";
 } else {
-    echo "<p>No courses found for this faculty.</p>";
+    echo "No courses found";
 }
 
 $conn->close();

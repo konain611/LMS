@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 if (isset($_POST['confirm'])) {
     $id = $_POST['id'];
 } elseif (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = $_GET['id']; 
 } else {
     echo "Invalid ID";
     exit;

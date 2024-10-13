@@ -3,7 +3,7 @@
 $host = 'localhost';
 $db = 'stureg';
 $user = 'root';
-$pass = '';
+$pass = '';   
 
 
 $conn = new mysqli($host, $user, $pass, $db);
@@ -19,12 +19,11 @@ if (isset($_GET['id'])) {
 
 if (isset($id) && !empty($id)) {
     $conn = new mysqli($host, $user, $pass, $db);
-    
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $result = $conn->query("SELECT * FROM stu_registration WHERE id = '$id'");
+    $result = $conn->query("SELECT * FROM stu_registration WHERE id = '$id'"); 
     if ($result->num_rows > 0) {
         $student = $result->fetch_assoc();
     } else {
@@ -46,7 +45,7 @@ if (isset($_POST['update'])) {
     $name = $_POST['studentname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $completeaddress = $_POST['completeaddress'];
+    $completeaddress = $_POST['completeaddress']; 
     $contactnumber = $_POST['contactnumber'];
 
     $conn = new mysqli($host, $user, $pass, $db);
@@ -82,18 +81,16 @@ if (isset($_POST['update'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/index.css">
     <title>Edit Student Info</title>
 </head>
-
 <body>
-
+    
     <form class="signupbox" action="edit.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="id" value="<?php echo $id; ?>"> 
         <label for="studentname">Student Name:</label>
         <input type="text" id="studentname" name="studentname" value="<?php echo $student['studentname']; ?>"><br><br>
         <label for="email">Email:</label>
@@ -107,5 +104,4 @@ if (isset($_POST['update'])) {
         <input type="submit" name="update" value="Update">
     </form>
 </body>
-
 </html>

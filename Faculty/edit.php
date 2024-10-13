@@ -3,7 +3,7 @@
 $host = 'localhost';
 $db = 'stureg';
 $user = 'root';
-$pass = '';
+$pass = '';   
 
 
 $conn = new mysqli($host, $user, $pass, $db);
@@ -15,24 +15,18 @@ if (isset($_GET['id'])) {
 } else {
     echo "Invalid ID";
     exit;
-
 }
 
 if (isset($id) && !empty($id)) {
-    
     $conn = new mysqli($host, $user, $pass, $db);
-
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $result = $conn->query("SELECT * FROM faculty_reg WHERE id = '$id'");
-
+    $result = $conn->query("SELECT * FROM faculty_reg WHERE id = '$id'"); 
     if ($result->num_rows > 0) {
         $faculty = $result->fetch_assoc();
-
-    }
-     else {
+    } else {
         echo "Faculty not found";
         exit;
     }
@@ -48,13 +42,10 @@ if (isset($id) && !empty($id)) {
 <?php
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
-
     $name = $_POST['name'];
-
     $email = $_POST['email'];
-
     $password = $_POST['password'];
-    $gender = $_POST['gender'];
+    $gender = $_POST['gender']; 
 
     $conn = new mysqli($host, $user, $pass, $db);
     if ($conn->connect_error) {
@@ -89,18 +80,16 @@ if (isset($_POST['update'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/index.css">
     <title>Edit Faculty Info</title>
 </head>
-
 <body>
-
+    
     <form class="signupbox" action="edit.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="id" value="<?php echo $id; ?>"> 
         <label for="name">faculty Name:</label>
         <input type="text" id="name" name="name" value="<?php echo $faculty['name']; ?>"><br><br>
         <label for="email">Email:</label>
@@ -112,5 +101,4 @@ if (isset($_POST['update'])) {
         <input type="submit" name="update" value="Update">
     </form>
 </body>
-
 </html>
