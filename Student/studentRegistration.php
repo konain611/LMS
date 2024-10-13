@@ -10,8 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $host = 'localhost';
+    
     $db = 'stureg';
     $user = 'root';
+
     $pass = '';
 
 
