@@ -180,6 +180,7 @@ $conn->close();
                     } else {
                         container.style.display = 'block';
                         container.innerHTML = xhr.responseText;
+                        
                     }
                 }
                 
